@@ -95,5 +95,8 @@
   ],
   "repository": {
     "url": "https://github.com/RedTecLab/js-lingui"
+  },
+  "publishConfig": {
+    "registry": "https://npm.pkg.github.com/"
   }
 }
