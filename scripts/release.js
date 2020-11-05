@@ -49,7 +49,7 @@ async function devRelease() {
   console.log()
   console.log(
     `Done! Run ${chalk.yellow(
-      "npm install --registry http://0.0.0.0:4873 @lingui/[package]"
+      "npm install --registry http://0.0.0.0:4873 @redteclab/js-lingui/[package]"
     )} in target project to install development version of package.`
   )
 }
@@ -254,7 +254,7 @@ function preparePackageDependencies(version, dependencies) {
   const updatedDependencies = {}
 
   Object.keys(dependencies).forEach(dependency => {
-    if (dependency.startsWith("@lingui/")) {
+    if (dependency.startsWith("@redteclab/js-lingui/")) {
       updatedDependencies[dependency] = version
     } else {
       // ignore anything else
@@ -271,7 +271,7 @@ async function npmPublish(version, options) {
       const name = packagePath.split("/").reverse()[0]
       const spinner = ora({
         isEnabled: !process.env.CI,
-        text: `Publishing @lingui/${name}@${version}`
+        text: `Publishing @redteclab/js-lingui/${name}@${version}`
       })
 
       spinner.start()
