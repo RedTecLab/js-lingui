@@ -1,5 +1,5 @@
 {
-  "name": "@lingui/cli",
+  "name": "@redteclab/cli",
   "version": "0.0.0-managed-by-release-script",
   "description": "CLI for working wit message catalogs",
   "keywords": [
@@ -38,7 +38,7 @@
     "@babel/plugin-syntax-jsx": "^7.10.4",
     "@babel/runtime": "^7.11.2",
     "@babel/types": "^7.11.5",
-    "@lingui/babel-plugin-extract-messages": "0.0.0-managed-by-release-script",
+    "@redteclab/babel-plugin-extract-messages": "0.0.0-managed-by-release-script",
     "@lingui/conf": "0.0.0-managed-by-release-script",
     "babel-plugin-macros": "^2.8.0",
     "bcp-47": "^1.0.7",
