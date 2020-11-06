@@ -3,7 +3,7 @@ import { transformFileSync } from "../compat"
 
 import linguiTransformJs from "@lingui/babel-plugin-transform-js"
 import linguiTransformReact from "@lingui/babel-plugin-transform-react"
-import linguiExtractMessages from "@lingui/babel-plugin-extract-messages"
+import linguiExtractMessages from "@redteclab/babel-plugin-extract-messages"
 
 import type { ExtractorType } from "./types"
 import { projectType } from "../detect"
