@@ -91,7 +91,11 @@ export default function({ types: t }) {
 
           // Trans import might be missing if there's just Plural or similar macro.
           // If there's no alias, consider it was imported as Trans.
-          localTransComponentName = importDeclarations["Trans"] || "Trans"
+          localTransComponentName =
+            importDeclarations["Trans"] ||
+            importDeclarations["TransWithHtml"] ||
+            "Trans" ||
+            "TransWithHtml"
         }
 
         // Remove imports of i18nMark identity
