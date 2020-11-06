@@ -37,7 +37,7 @@ async function devRelease() {
   console.log()
   console.log(
     `Done! Run ${chalk.yellow(
-      "yalc link @lingui/[package]"
+      "yalc link @redteclab/[package]"
     )} in target project to install development version of package.`
   )
 }
@@ -242,7 +242,7 @@ function preparePackageDependencies(version, dependencies) {
   const updatedDependencies = {}
 
   Object.keys(dependencies).forEach(dependency => {
-    if (dependency.startsWith("@lingui/")) {
+    if (dependency.startsWith("@redteclab/")) {
       updatedDependencies[dependency] = version
     } else {
       // ignore anything else
@@ -259,7 +259,7 @@ async function npmPublish(version, options) {
       const name = packagePath.split("/").reverse()[0]
       const spinner = ora({
         isEnabled: !process.env.CI,
-        text: `Publishing @lingui/${name}@${version}`
+        text: `Publishing @redteclab/${name}@${version}`
       })
 
       spinner.start()
