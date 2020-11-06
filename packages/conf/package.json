@@ -1,13 +1,13 @@
 {
-  "name": "@lingui/conf",
+  "name": "@redteclab/conf",
   "version": "0.0.0-managed-by-release-script",
   "description": "Get lingui configuration from package.json",
   "keywords": [
     "lingui",
     "config"
   ],
-  "repository": "lingui/js-lingui",
-  "bugs": "https://github.com/lingui/js-lingui/issues",
+  "repository": "redteclab/js-lingui",
+  "bugs": "https://github.com/redteclab/js-lingui/issues",
   "license": "MIT",
   "author": {
     "name": "Tomáš Ehrlich",

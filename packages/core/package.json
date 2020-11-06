@@ -1,5 +1,5 @@
 {
-  "name": "@lingui/core",
+  "name": "@redteclab/core",
   "version": "0.0.0-managed-by-release-script",
   "description": "I18n tools for javascript",
   "main": "index.js",
@@ -19,10 +19,10 @@
   ],
   "repository": {
     "type": "git",
-    "url": "https://github.com/lingui/js-lingui.git"
+    "url": "https://github.com/redteclab/js-lingui.git"
   },
   "bugs": {
-    "url": "https://github.com/lingui/js-lingui/issues"
+    "url": "https://github.com/redteclab/js-lingui/issues"
   },
   "engines": {
     "node": ">=10.0.0"
