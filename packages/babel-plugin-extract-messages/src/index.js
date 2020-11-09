@@ -35,6 +35,7 @@ function addMessage(path, messages, { id, defaults, origin, ...props }) {
 
 export default function({ types: t }) {
   let localTransComponentName
+  let localTransWithHtmlComponentName
 
   const opts = getConfig()
   const optsBaseDir = opts.rootDir
@@ -44,6 +45,15 @@ export default function({ types: t }) {
       t.isJSXElement(node) &&
       t.isJSXIdentifier(node.openingElement.name, {
         name: localTransComponentName
+      })
+    )
+  }
+
+  function isTransWithHtmlComponent(node) {
+    return (
+      t.isJSXElement(node) &&
+      t.isJSXIdentifier(node.openingElement.name, {
+        name: localTransWithHtmlComponentName
       })
     )
   }
@@ -104,11 +114,10 @@ export default function({ types: t }) {
 
           // Trans import might be missing if there's just Plural or similar macro.
           // If there's no alias, consider it was imported as Trans.
-          localTransComponentName =
-            importDeclarations["Trans"] ||
-            importDeclarations["TransWithHtml"] ||
-            "Trans" ||
-            "TransWithHtml"
+          localTransComponentName = importDeclarations["Trans"] || "Trans"
+
+          localTransWithHtmlComponentName =
+            importDeclarations["TransWithHtml"] || "TransWithHtml"
         }
 
         // Remove imports of i18nMark identity
@@ -126,7 +135,11 @@ export default function({ types: t }) {
       // Extract translation from <Trans /> component.
       JSXElement(path, { file }) {
         const { node } = path
-        if (!localTransComponentName || !isTransComponent(node)) return
+        if (
+          (!localTransComponentName && !localTransWithHtmlComponentName) ||
+          (!isTransComponent(node) && !isTransWithHtmlComponent(node))
+        )
+          return
 
         const attrs = node.openingElement.attributes || []
 
