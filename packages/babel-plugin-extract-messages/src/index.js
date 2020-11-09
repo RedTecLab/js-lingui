@@ -112,9 +112,11 @@ export default function({ types: t }) {
         }
 
         // Remove imports of i18nMark identity
-        node.specifiers = node.specifiers.filter(
-          specifier => specifier.imported.name !== "i18nMark"
-        )
+        node.specifiers = node.specifiers.filter(specifier => {
+          if (specifier.imported) {
+            return specifier.imported.name !== "i18nMark"
+          }
+        })
 
         if (!node.specifiers.length) {
           path.remove()
