@@ -77,16 +77,29 @@ export default function({ types: t }) {
         const moduleName = node.source.value
         if (
           !Array.includes(
-            ["@lingui/react", "@lingui/macro", "@lingui/core"],
+            [
+              "@lingui/react",
+              "@lingui/macro",
+              "@lingui/core",
+              "views/components/utils/TransWithHtml"
+            ],
             moduleName
           )
         )
           return
 
         const importDeclarations = {}
-        if (moduleName === "@lingui/react" || moduleName === "@lingui/macro") {
+        if (
+          moduleName === "@lingui/react" ||
+          moduleName === "@lingui/macro" ||
+          moduleName === "views/components/utils/TransWithHtml"
+        ) {
           node.specifiers.forEach(specifier => {
-            importDeclarations[specifier.imported.name] = specifier.local.name
+            if (specifier.type !== "ImportDefaultSpecifier") {
+              importDeclarations[specifier.imported.name] = specifier.local.name
+            } else {
+              importDeclarations[specifier.local.name] = specifier.local.name
+            }
           })
 
           // Trans import might be missing if there's just Plural or similar macro.
